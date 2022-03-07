@@ -19,16 +19,10 @@ function calculateTax(taxYear, name, annualIncome, marriageStatus, dependentChil
         }
 
     }
-    
-    if(annualIncome > 0 & annualIncome <= 200000000){
-        sumOfTax = 10/100*(annualIncome - ptkp)
-    }else if(annualIncome > 0 & annualIncome <= 200000000 ){
-        sumOfTax = 10/100*(annualIncome - ptkp)
-    }else if(annualIncome > 200000001 & annualIncome <= 450000000 ){
-        sumOfTax = 15/100*(annualIncome - ptkp)
-    }else if(annualIncome > 450000000 ){
-        sumOfTax = 20/100*(annualIncome - ptkp)
-    }
+
+    let pkp = annualIncome - ptkp
+
+    sumOfTax = (pkp*10/100) + ((pkp-200000000)*20/100) + ((pkp-250000000) * 30/100)    
 
     console.log(taxYear, name, annualIncome, marriageStatus, dependentChildrenCount)
     return sumOfTax
